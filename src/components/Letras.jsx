@@ -38,7 +38,37 @@ export default function Letras(
         setWordGame(word);
     }
 
-   
+    function selecionaBotao(letter) {
+        const selectecLetters = [...selectedLetters, letter];
+        setSelectedLetters(selectecLetters);
+
+        if (counter < errorLimit) {
+            if (word.includes(letter)) {
+                updateWordGame(letter);
+            } else {
+                setErrorLetter(counter);
+            }
+        } else if (counter === 6 && word.includes(letter)) {
+            updateWordGame(letter);
+        } else {
+            gameLose();
+        }
+    }
+
+    function updateWordGame(letter) {
+        for (let i = 0; i < word.length; i++) {
+            if (letter === word[i]) {
+                wordGame[i] = letter;
+                updateWord.push(letter);
+            } else {
+                updateWord.push(wordGame[i]);
+            }
+            setWordGame(updateWord);
+        }
+        if (word.join("") === updateWord.join("")) {
+            gameWin();
+        }
+    }
 
     return (
         <div className="letters">
