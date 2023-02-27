@@ -38,7 +38,7 @@ export default function Letras(
         setWordGame(word);
     }
 
-    function selecionaBotao(letter) {
+    function buttonSelected(letter) {
         const selectecLetters = [...selectedLetters, letter];
         setSelectedLetters(selectecLetters);
 
@@ -78,7 +78,7 @@ export default function Letras(
                     key={letter}
                     className={selectedLetters.includes(letter) ? "disable" : disable}
                     disabled={selectedLetters.includes(letter) || word === ""}
-                    onClick={(e) => selecionaBotao(letter)} >
+                    onClick={(e) => buttonSelected(letter)} >
                     {letter.toUpperCase()}
                 </button>)}
         </div>
