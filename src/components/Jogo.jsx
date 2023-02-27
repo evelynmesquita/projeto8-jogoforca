@@ -14,6 +14,7 @@ export default function Jogo(
         setSelectedLetters
     }
 ) {
+
     let randomWords = Math.floor(Math.random() * palavras.length);
     const sortWord = (palavras[randomWords].split(""));
     const renderWord = [];
@@ -40,8 +41,7 @@ export default function Jogo(
             <button data-test="choose-word" onClick={startGame}>
                 Escolher Palavra
             </button>
-            <h1 data-test="word" 
-                data-answer={word ? word.join("") : ""} 
+            <h1 data-test="word"
                 className={wordColor}>
                 {wordGame}
             </h1>
